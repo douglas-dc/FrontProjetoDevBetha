@@ -1,3 +1,5 @@
+<div><input type="text" placeholder="Digite para buscar um cliente" style="width: 300px;"></div>
+<br>
 <div>
     <table>
         <tr>
@@ -6,6 +8,7 @@
             <th>Email</th>
             <th>Telefone</th>
             <th>Endereco</th>
+            <th>Opções</th>
         </tr>
         <tr ng-repeat="cliente in clientes">
             <td>{{cliente.id}}</td>
@@ -13,6 +16,11 @@
             <td>{{cliente.email}}</td>
             <td>{{cliente.telefone}}</td>
             <td>{{cliente.endereco}}</td>
+            <td><a href="#/alterarCliente/{{cliente.id}}">Alterar</a></td>
         </tr>
     </table>
+</div>
+<br>
+<div>
+    <a href="#/novoCliente">Novo Cliente</a>
 </div>
