@@ -8,16 +8,5 @@ angular.module("projetoDevBetha").controller("clientesController", function ($sc
         })
     }
 
-    //novoCliente
-    $scope.insertCliente = function(cliente) {
-        $scope.clientes.push(clienteService.postCliente(cliente))
-    }
-
-    //alterarCliente
-    $scope.updateCliente = function(cliente) { 
-        cliente.id = $routeParams.id
-        clienteService.putCliente(cliente)
-    }
-
     findClientes()
 });

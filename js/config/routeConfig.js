@@ -6,13 +6,13 @@ angular.module("projetoDevBetha").config(function ($routeProvider, $locationProv
         controller: "clientesController"
     })
 
-    $routeProvider.when("/novoCliente", {
+    $routeProvider.when("/novocliente", {
         templateUrl: "view/novoCliente.html",
-        controller: "clientesController"
+        controller: "inserirClienteController"
     })
 
-    $routeProvider.when("/alterarCliente/:id", {
+    $routeProvider.when("/alterarcliente/:id", {
         templateUrl: "view/alterarCliente.html",
-        controller: "clientesController"
+        controller: "alterarClienteController"
     })
 });
