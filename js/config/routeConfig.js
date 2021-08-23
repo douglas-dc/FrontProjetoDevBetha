@@ -15,4 +15,15 @@ angular.module("projetoDevBetha").config(function ($routeProvider, $locationProv
         templateUrl: "view/alterarCliente.html",
         controller: "alterarClienteController"
     })
+
+    $routeProvider.when("/funcionarios", {
+        templateUrl: "view/funcionarios.html",
+        controller: "funcionariosController"
+    })
+
+    $routeProvider.when("/novofuncionario", {
+        templateUrl: "view/novofuncionario.html",
+        controller: "inserirFuncionarioController"
+    })
+
 });

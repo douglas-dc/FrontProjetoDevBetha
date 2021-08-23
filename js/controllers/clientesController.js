@@ -1,4 +1,4 @@
-angular.module("projetoDevBetha").controller("clientesController", function ($scope, clienteService, $routeParams){
+angular.module("projetoDevBetha").controller("clientesController", function ($scope, clienteService){
     $scope.clientes = [];
 
     let findClientes = function() {

@@ -1,10 +1,16 @@
 angular.module("projetoDevBetha").controller("inserirClienteController", function ($scope, clienteService, $location){
 
     $scope.insertCliente = function(cliente) {
-        clienteService.postCliente(cliente).then(function(response) {
+        console.log(cliente)
+        clienteService.postCliente(cliente).then(function() {
             $location.path("/clientes")
         }, function (error) {
-            alert(error.data.errors[0].message)   
+            if(error.data.status == 400){
+                alert(error.data.error)
+            }
+            if(error.data.status == 422){
+                alert(error.data.errors[0].message)
+            }
         })
     }
 });
