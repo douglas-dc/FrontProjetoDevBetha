@@ -10,11 +10,10 @@ angular.module("projetoDevBetha").controller("alterarClienteController", functio
     $scope.findClienteById($routeParams.id)
 
     $scope.updateCliente = function(cliente) { 
-        cliente.id = $routeParams.id
         clienteService.putCliente(cliente).then(function(response) {
             $location.path("/clientes")
         }, function (error) {
-            alert(error.data.message)      
+            alert(error.data.errors[0].message)      
         })
     }
 })

@@ -1,4 +1,4 @@
-<div><input type="text" placeholder="Digite para buscar um cliente" style="width: 300px;"></div>
+<div><input type="text" ng-model="criterioDeBusca" placeholder="Digite para buscar um cliente" style="width: 300px;"></div>
 <br>
 <div>
     <table>
@@ -10,7 +10,7 @@
             <th>Endereco</th>
             <th>Opções</th>
         </tr>
-        <tr ng-repeat="cliente in clientes">
+        <tr ng-repeat="cliente in clientes | filter:{nome:criterioDeBusca}">
             <td>{{cliente.id}}</td>
             <td>{{cliente.nome}}</td>
             <td>{{cliente.email}}</td>
