@@ -26,4 +26,9 @@ angular.module("projetoDevBetha").config(function ($routeProvider, $locationProv
         controller: "inserirFuncionarioController"
     })
 
+    $routeProvider.when("/alterarfuncionario/:id", {
+        templateUrl: "view/alterarFuncionario.html",
+        controller: "alterarFuncionarioController"
+    })
+
 });

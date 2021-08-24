@@ -1,17 +1,22 @@
 angular.module("projetoDevBetha").service("funcionarioService", function ($http, config) {
+    
     this.getFuncionarios = function() {
         return $http.get(config.baseUrl + "/funcionarios")
     }
 
-    // this.getClienteById = function(clienteId) {
-    //     return $http.get(config.baseUrl + "/clientes/" + clienteId)
-    // }
-
-    this.postFuncionario = function(funcionarios) {
-        return $http.post(config.baseUrl + "/funcionarios", funcionarios)
+    this.getFuncionarioById = function(funcionarioId) {
+        return $http.get(config.baseUrl + "/funcionarios/" + funcionarioId)
     }
 
-    // this.putCliente = function(cliente) {
-    //     return $http.put(config.baseUrl + "/clientes/" + cliente.id, cliente)
-    // }
+    this.postFuncionario = function(funcionario) {
+        return $http.post(config.baseUrl + "/funcionarios", funcionario)
+    }
+
+    this.putFuncionario = function(funcionario) {
+        return $http.put(config.baseUrl + "/funcionarios/" + funcionario.id, funcionario)
+    }
+
+    this.deleteFuncionario = function(funcionarioId) {
+        return $http.delete(config.baseUrl + "/funcionarios/" + funcionarioId)
+    }
 });

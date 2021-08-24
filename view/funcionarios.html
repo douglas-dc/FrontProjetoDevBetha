@@ -16,6 +16,7 @@
             <td>{{funcionario.email}}</td>
             <td>{{funcionario.perfil}}</td>
             <td><a href="#/alterarfuncionario/{{funcionario.id}}">Alterar</a></td>
+            <td><button ng-click="deleteFuncionarioById(funcionario.id)">Deletar</button></td>
         </tr>
     </table>
 </div>
