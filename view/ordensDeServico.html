@@ -1,0 +1,30 @@
+<div>
+    <input type="text" ng-model="criterioDeBusca" placeholder="Digite um id para buscar" style="width: 300px;">
+</div>
+<br>
+<div>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Instante</th>
+            <th>Cliente</th>
+            <th>Equipamentos</th>
+            <th>Status</th>
+        </tr>
+        <tr ng-repeat="ordemDeServico in ordensDeServico | filter:{id:criterioDeBusca}">          
+            <td>{{ordemDeServico.id}}</td>
+            <td>{{ordemDeServico.instante}}</td>
+            <td>{{ordemDeServico.cliente.nome}}</td>
+            <td>
+                <li ng-repeat="equipamento in ordemDeServico.equipamentos">{{equipamento.tipo}}</li>
+            </td>
+            <td>{{ordemDeServico.status}}</td>
+            <td><a href="#/alterarordemdeservico/{{ordemDeServico.id}}">Alterar</a></td>
+            <td><button ng-click="deleteOrdemDeServicoById(ordemDeServico.id)">Deletar</button></td>
+        </tr>
+    </table>
+</div>
+<br>
+<div>
+    <a href="#/novaordemdeservico">Nova Ordem de Serviço</a>
+</div>

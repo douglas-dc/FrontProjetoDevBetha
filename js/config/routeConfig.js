@@ -31,4 +31,9 @@ angular.module("projetoDevBetha").config(function ($routeProvider, $locationProv
         controller: "alterarFuncionarioController"
     })
 
+    $routeProvider.when("/ordens", {
+        templateUrl: "view/ordensDeServico.html",
+        controller: "ordensDeServicoController"
+    })
+
 });

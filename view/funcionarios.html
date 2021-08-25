@@ -1,5 +1,5 @@
 <div>
-    <input type="text" ng-model="criterioDeBusca" placeholder="Digite um nome para buscar" style="width: 300px;">
+    <input type="text" ng-model="criterioDeBusca" placeholder="Digite um email para buscar" style="width: 300px;">
 </div>
 <br>
 <div>
@@ -10,7 +10,7 @@
             <th>Email</th>
             <th>Perfil</th>
         </tr>
-        <tr ng-repeat="funcionario in funcionarios | filter:{nome:criterioDeBusca}">
+        <tr ng-repeat="funcionario in funcionarios | filter:{email:criterioDeBusca}">
             <td>{{funcionario.id}}</td>
             <td>{{funcionario.nome}}</td>
             <td>{{funcionario.email}}</td>
