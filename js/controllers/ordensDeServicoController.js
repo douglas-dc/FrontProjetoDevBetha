@@ -7,7 +7,13 @@ angular.module("projetoDevBetha").controller("ordensDeServicoController", functi
             $scope.ordensDeServico = response.data;
             console.log(response.data)
         })
-    }   
+    }  
+    
+    $scope.deleteOrdemDeServicoById = function(ordemDeServicoId) {
+        ordemDeServicoService.deleteOrdemDeServico(ordemDeServicoId).then(function(){
+            window.location.reload();
+        })
+    }
 
     findOrdensDeServico()
 });

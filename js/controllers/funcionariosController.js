@@ -10,7 +10,7 @@ angular.module("projetoDevBetha").controller("funcionariosController", function 
 
     $scope.deleteFuncionarioById = function(funcionarioId) {
         funcionarioService.deleteFuncionario(funcionarioId).then(function(){
-            findFuncionarios()
+            window.location.reload();
         })
     }
 

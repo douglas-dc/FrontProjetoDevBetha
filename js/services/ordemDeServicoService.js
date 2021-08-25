@@ -7,4 +7,8 @@ angular.module("projetoDevBetha").service("ordemDeServicoService", function ($ht
     this.getOrdemDeServicoById = function(ordemDeServicoId) {
         return $http.get(config.baseUrl + "/ordens/" + ordemDeServicoId)
     }
+
+    this.deleteOrdemDeServico = function(ordemDeServicoId) {
+        return $http.delete(config.baseUrl + "/ordens/" + ordemDeServicoId)
+    }
 });
