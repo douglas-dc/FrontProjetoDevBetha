@@ -11,4 +11,8 @@ angular.module("projetoDevBetha").service("ordemDeServicoService", function ($ht
     this.deleteOrdemDeServico = function(ordemDeServicoId) {
         return $http.delete(config.baseUrl + "/ordens/" + ordemDeServicoId)
     }
+
+    this.postOrdemDeServico = function(ordemDeServico) {
+        return $http.post(config.baseUrl + "/ordens/", ordemDeServico)
+    }
 });

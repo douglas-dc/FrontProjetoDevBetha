@@ -36,4 +36,9 @@ angular.module("projetoDevBetha").config(function ($routeProvider, $locationProv
         controller: "ordensDeServicoController"
     })
 
+    $routeProvider.when("/novaordemdeservico", {
+        templateUrl: "view/novaOrdemDeServico.html",
+        controller: "novaOrdemDeServicoController"
+    })
+
 });

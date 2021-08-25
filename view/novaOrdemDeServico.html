@@ -1,0 +1,19 @@
+<h3>Dados da Ordem de Serviço</h3>
+<select ng-model="ordemDeServico.cliente" ng-options="cliente.id for cliente in clientes">
+    <option value="">Selecione um Cliente</option>
+</select>
+<br>
+<br>
+<div ng-repeat="equipamento in equipamentos">
+    <p>{{equipamento.tipo}}</p>
+    <p>{{equipamento.descricao}}</p>
+</div>
+<form>
+    <input type="text" ng-model="equipamento.tipo" placeholder="Tipo do equipamento">
+    <input type="text" ng-model="equipamento.descricao" placeholder="Descrição do equipamento">
+    <button ng-click="insertEquipamento(equipamento)">Salvar e deletar</button>
+</form>
+<br>
+<br>
+<button ng-click="insertOrdemDeServico(ordemDeServico, equipamentos)">Adicionar</button>
+<a href="#/ordens">Voltar</a>
