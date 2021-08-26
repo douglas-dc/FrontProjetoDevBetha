@@ -1,5 +1,4 @@
 angular.module("projetoDevBetha").controller("novaOrdemDeServicoController", function ($scope, ordemDeServicoService, clienteService, $location){
-    // $scope.clientes = [];
     $scope.equipamentos = [];
     
     let buscarClientes = function() {

@@ -1,0 +1,24 @@
+<h3>Dados da Ordem de Serviço</h3>
+<div>Cliente</div>
+<select ng-model="ordemDeServico.cliente" ng-options="cliente.id + ' ' + cliente.nome for cliente in clientes">
+</select>
+<br>
+<br>
+<div>Status</div>
+<select ng-model="ordemDeServico.status" ng-options="status for status in listStatus">
+</select>
+<div><h4>Equipamentos Cadastrados</h4></div>
+<table>
+    <tr>
+        <th>Tipo</th>
+        <th>Descrição</th>
+    </tr>
+    <tr ng-repeat="equipamento in ordemDeServico.equipamentos">
+        <td><input type="text" ng-model="equipamento.tipo" placeholder="Tipo do equipamento"></td>
+        <td><input type="text" ng-model="equipamento.descricao" placeholder="Descrição do equipamento"></td>
+    </tr>
+</table>
+<br>
+<br>
+<button ng-click="updateOrdemDeServico(ordemDeServico)">Alterar</button>
+<a href="#/ordens">Voltar</a>
