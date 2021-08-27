@@ -15,4 +15,9 @@ angular.module("projetoDevBetha").service("ordemDeServicoService", function ($ht
     this.postOrdemDeServico = function(ordemDeServico) {
         return $http.post(config.baseUrl + "/ordens/", ordemDeServico)
     }
+
+    this.putOrdemDeServico = function(ordemDeServico) {
+        return $http.put(config.baseUrl + "/ordens/" + ordemDeServico.id, ordemDeServico)
+    }
+
 });
