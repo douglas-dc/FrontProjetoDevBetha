@@ -20,4 +20,15 @@ angular.module("projetoDevBetha").service("ordemDeServicoService", function ($ht
         return $http.put(config.baseUrl + "/ordens/" + ordemDeServico.id, ordemDeServico)
     }
 
+    this.postImagem = function (equipamentoId, file) {
+        var formData = new FormData();
+        formData.append('file', file, file.name);
+
+        return $http.post(config.baseUrl + "/ordens/avarias/equipamento/" +  equipamentoId, formData, {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined}
+        })
+    };
+
+
 });

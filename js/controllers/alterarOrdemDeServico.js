@@ -19,8 +19,43 @@ angular.module("projetoDevBetha").controller("alterarOrdemDeServicoController", 
             console.log(error);
         })
     }
+
     buscarClientes();
-    
+
+    $scope.uploadImagem = function(equipamentos) {
+        if(equipamentos.length > 1){
+            var verifica = true;
+            for(var i=0; i<equipamentos.length; i++) {
+                if(file[i].files[0] == null){
+                    verifica = false
+                }
+            }
+        }
+
+        if(verifica == true) {
+            for(var i=0;i<equipamentos.length;i++) {
+                var equipamentoId = equipamentos[i].id;    
+                ordemDeServicoService.postImagem(equipamentoId,
+                file[i].files[0]).then(() => {
+                     //window.location.reload();
+                    console.log("upload concluído");
+                }, function(error) {
+                    alert(error.data.message)
+                })
+            }
+        }
+
+        var img = document.getElementById("file").files[0]
+        equipamentoId = equipamentos[0].id; 
+        console.log(img)
+        ordemDeServicoService.postImagem(equipamentoId, img).then(function(response) {
+            //window.location.reload();
+            console.log("upload concluído")
+        }, function(error) {
+            alert(error.data.message)
+        })
+    }
+
     $scope.findOrdemDeServicoById($routeParams.id);
     
 });
