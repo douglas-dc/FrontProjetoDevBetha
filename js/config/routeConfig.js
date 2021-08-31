@@ -1,6 +1,10 @@
 angular.module("projetoDevBetha").config(function ($routeProvider, $locationProvider) {
     $locationProvider.hashPrefix('')
 
+    $routeProvider.when("/homepage", {
+        templateUrl: "view/homepage.html"
+    })
+
     $routeProvider.when("/clientes", {
         templateUrl: "view/clientes.html",
         controller: "clientesController"
