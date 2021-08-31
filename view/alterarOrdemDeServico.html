@@ -13,13 +13,14 @@
         <th>Tipo</th>
         <th>Descrição</th>
         <th>Imagem</th>
+        <th>Nova Imagem</th>
         <th>Salvar</th>
     </tr>
     
     <tr ng-repeat="equipamento in ordemDeServico.equipamentos">
-        {{ordemDeServico.equipamentos}}
         <td><input type="text" ng-model="equipamento.tipo" placeholder="Tipo do equipamento"></td>
         <td><input type="text" ng-model="equipamento.descricao" placeholder="Descrição do equipamento"></td>
+        <td><a href="{{equipamento.imageName}}" target="_blank">Abrir imagem</a></td>
         <td><input type="file" ng-model="equipamento.imageName" id="file" name="files" file-model="myFile"></td>
         <td><button type="submit"  ng-click="uploadImagem(ordemDeServico.equipamentos)">Adicionar</button></td>
     </tr>

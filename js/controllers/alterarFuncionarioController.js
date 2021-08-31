@@ -14,7 +14,7 @@ angular.module("projetoDevBetha").controller("alterarFuncionarioController", fun
             $location.path("/funcionarios")
         }, function (error) {
             if(error.data.status == 400){
-                alert(error.data.error)
+                alert(error.data.message)
             }
             if(error.data.status == 422){
                 alert(error.data.errors[0].message)

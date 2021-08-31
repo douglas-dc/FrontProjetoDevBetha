@@ -1,4 +1,4 @@
-angular.module("projetoDevBetha").controller("alterarOrdemDeServicoController", function ($scope, ordemDeServicoService, clienteService, $routeParams){
+angular.module("projetoDevBetha").controller("alterarOrdemDeServicoController", function ($scope, ordemDeServicoService, clienteService, $routeParams, $location){
 
     $scope.listStatus = ["PENDENTE", "AGUARDANDO_CLIENTE", "APROVADA", "RECUSADA", "CONCLUIDA"];
     
@@ -36,7 +36,7 @@ angular.module("projetoDevBetha").controller("alterarOrdemDeServicoController", 
             for(var i=0;i<equipamentos.length;i++) {
                 var equipamentoId = equipamentos[i].id;    
                 ordemDeServicoService.postImagem(equipamentoId,
-                file[i].files[0]).then(() => {
+                file[i].files[0]).then(function() {
                      //window.location.reload();
                     console.log("upload concluído");
                 }, function(error) {
@@ -48,11 +48,24 @@ angular.module("projetoDevBetha").controller("alterarOrdemDeServicoController", 
         var img = document.getElementById("file").files[0]
         equipamentoId = equipamentos[0].id; 
         console.log(img)
-        ordemDeServicoService.postImagem(equipamentoId, img).then(function(response) {
+        ordemDeServicoService.postImagem(equipamentoId, img).then(function() {
             //window.location.reload();
             console.log("upload concluído")
         }, function(error) {
             alert(error.data.message)
+        })
+    }
+
+    $scope.updateOrdemDeServico = function(ordemDeServico) {
+        ordemDeServicoService.putOrdemDeServico(ordemDeServico).then(function() {
+            $location.path("/ordens")
+        }, function (error) {
+            if(error.data.status == 400){
+                alert(error.data.message)
+            }
+            if(error.data.status == 422){
+                alert(error.data.errors[0].message)
+            }
         })
     }
 
