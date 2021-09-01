@@ -1,5 +1,11 @@
 angular.module("projetoDevBetha").controller("inserirOrdemDeServicoController", function ($scope, ordemDeServicoService, clienteService, $location){
     $scope.equipamentos = [];
+    $scope.ordemDeServico = {
+        "cliente": {
+            "id": undefined
+        },
+        "equipamentos": []
+    };
     
     let buscarClientes = function() {
         clienteService.getClientes().then(function(response) {
@@ -10,12 +16,11 @@ angular.module("projetoDevBetha").controller("inserirOrdemDeServicoController", 
     }
 
     $scope.insertEquipamento = function(equipamento) {
-        $scope.equipamentos.push(equipamento) 
+        $scope.ordemDeServico.equipamentos.push(equipamento)
         delete($scope.equipamento);
     }
 
-    $scope.insertOrdemDeServico = function(ordemDeServico, equipamentos) {
-        ordemDeServico.equipamentos = equipamentos;
+    $scope.insertOrdemDeServico = function(ordemDeServico) {
         ordemDeServicoService.postOrdemDeServico(ordemDeServico).then(function() {
             $location.path("/ordens")
         }, function (error) {
