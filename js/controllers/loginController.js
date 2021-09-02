@@ -2,10 +2,9 @@ angular.module("projetoDevBetha").controller("loginController", function ($scope
 
     $scope.entrar = function(usuario) {        
         loginService.postLogin(usuario).then(function(response) {
-            const authorization = response.headers("authorization");
-            localStorage.setItem("token", authorization);
+            localStorage.setItem("authorization", response.headers("Authorization"));
             $location.path("/homepage");
-        }, function(){
+        }, function() {
             alert("Credenciais de usuário incorretas");
         })
     };

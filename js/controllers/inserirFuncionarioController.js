@@ -4,12 +4,7 @@ angular.module("projetoDevBetha").controller("inserirFuncionarioController", fun
         funcionarioService.postFuncionario(funcionario).then(function() {
             $location.path("/funcionarios")
         }, function (error) {
-            if(error.data.status == 400){
-                alert(error.data.error)
-            }
-            if(error.data.status == 422){
-                alert(error.data.errors[0].message)
-            } 
+            alert("Insira todas as informações corretamente!")
         })
     }
 });

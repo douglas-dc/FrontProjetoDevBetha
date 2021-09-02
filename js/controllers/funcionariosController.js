@@ -1,4 +1,4 @@
-angular.module("projetoDevBetha").controller("funcionariosController", function ($scope, funcionarioService, $location){
+angular.module("projetoDevBetha").controller("funcionariosController", function ($scope, funcionarioService){
     $scope.funcionarios = [];
 
     let findFuncionarios = function() {
