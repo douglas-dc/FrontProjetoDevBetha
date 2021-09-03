@@ -12,6 +12,10 @@ angular.module("projetoDevBetha").controller("ordensDeServicoController", functi
     $scope.deleteOrdemDeServicoById = function(ordemDeServicoId) {
         ordemDeServicoService.deleteOrdemDeServico(ordemDeServicoId).then(function(){
             window.location.reload();
+        }, function(error) {
+            if (error.status == 403) {
+                alert("Você não tem permissão para esta ação!")
+            }
         })
     }
     

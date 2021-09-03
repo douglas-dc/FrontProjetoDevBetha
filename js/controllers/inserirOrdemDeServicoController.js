@@ -21,15 +21,17 @@ angular.module("projetoDevBetha").controller("inserirOrdemDeServicoController", 
     }
 
     $scope.insertOrdemDeServico = function(ordemDeServico) {
-        ordemDeServicoService.postOrdemDeServico(ordemDeServico).then(function() {
-            $location.path("/ordens")
-        }, function (error) {
-            if (error.status == 403) {
-                alert("Você não tem permissão para esta ação!")
-            } else {
-                alert("Insira todas as informações corretamente!")
-            }      
-        })
+        if (ordemDeServico.cliente.id == null || ordemDeServico.equipamentos.length == 0) {
+            alert("Insira as todas as informações corretamente!")
+        } else {
+            ordemDeServicoService.postOrdemDeServico(ordemDeServico).then(function() {
+                $location.path("/ordens")
+            }, function (error) {
+                if (error.status == 403) {
+                    alert("Você não tem permissão para esta ação!")
+                }  
+            })
+        }
     }
 
     buscarClientes();
