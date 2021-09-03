@@ -23,37 +23,28 @@ angular.module("projetoDevBetha").controller("alterarOrdemDeServicoController", 
     buscarClientes();
 
     $scope.uploadImagem = function(equipamentos) {
-        if(equipamentos.length > 1){
-            var verifica = true;
-            for(var i=0; i<equipamentos.length; i++) {
-                if(file[i].files[0] == null){
-                    verifica = false
-                }
+        if (equipamentos.length > 1) {
+            for(var i=0; i < equipamentos.length; i++) {
+                var equipamentoId = equipamentos[i].id;
+                if (file[i].files[0] != null || file[i].files[0] != undefined) {
+                    ordemDeServicoService.postImagem(equipamentoId,
+                        file[i].files[0]).then(function() {
+                            window.location.reload();
+                        }, function(error) {
+                            alert(error.data.message)
+                        })
+                }    
             }
+        } else {
+            var img = document.getElementById("file").files[0]
+            equipamentoId = equipamentos[0].id; 
+            console.log(img)
+            ordemDeServicoService.postImagem(equipamentoId, img).then(function() {
+                window.location.reload();
+            }, function(error) {
+                alert(error.data.message)
+            })
         }
-
-        if(verifica == true) {
-            for(var i=0;i<equipamentos.length;i++) {
-                var equipamentoId = equipamentos[i].id;    
-                ordemDeServicoService.postImagem(equipamentoId,
-                file[i].files[0]).then(function() {
-                     //window.location.reload();
-                    console.log("upload concluído");
-                }, function(error) {
-                    alert(error.data.message)
-                })
-            }
-        }
-
-        var img = document.getElementById("file").files[0]
-        equipamentoId = equipamentos[0].id; 
-        console.log(img)
-        ordemDeServicoService.postImagem(equipamentoId, img).then(function() {
-            //window.location.reload();
-            console.log("upload concluído")
-        }, function(error) {
-            alert(error.data.message)
-        })
     }
 
     $scope.updateOrdemDeServico = function(ordemDeServico) {
