@@ -13,12 +13,11 @@ angular.module("projetoDevBetha").controller("alterarFuncionarioController", fun
         funcionarioService.putFuncionario(funcionario).then(function() {
             $location.path("/funcionarios")
         }, function (error) {
-            if(error.data.status == 400){
-                alert(error.data.message)
-            }
-            if(error.data.status == 422){
-                alert(error.data.errors[0].message)
-            }
+            if (error.status == 403) {
+                alert("Você não tem permissão para esta ação!")
+            } else {
+                alert("Insira todas as informações corretamente!")
+            }      
         })
     }
 })

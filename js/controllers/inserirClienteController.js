@@ -4,8 +4,12 @@ angular.module("projetoDevBetha").controller("inserirClienteController", functio
         console.log(cliente)
         clienteService.postCliente(cliente).then(function() {
             $location.path("/clientes")
-        }, function () {
-           alert("Insira todas as informações corretamente!")
+        }, function (error) {
+            if (error.status == 403) {
+                alert("Você não tem permissão para esta ação!")
+            } else {
+                alert("Insira todas as informações corretamente!")
+            }      
         })
     }
 });

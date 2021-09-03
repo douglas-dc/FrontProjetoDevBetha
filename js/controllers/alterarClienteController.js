@@ -13,7 +13,11 @@ angular.module("projetoDevBetha").controller("alterarClienteController", functio
         clienteService.putCliente(cliente).then(function() {
             $location.path("/clientes")
         }, function (error) {
-            alert(error.data.errors[0].message)      
+            if (error.status == 403) {
+                alert("Você não tem permissão para esta ação!")
+            } else {
+                alert("Insira todas as informações corretamente!")
+            }      
         })
     }
 })

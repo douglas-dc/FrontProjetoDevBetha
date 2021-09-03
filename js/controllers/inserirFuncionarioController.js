@@ -4,7 +4,11 @@ angular.module("projetoDevBetha").controller("inserirFuncionarioController", fun
         funcionarioService.postFuncionario(funcionario).then(function() {
             $location.path("/funcionarios")
         }, function (error) {
-            alert("Insira todas as informações corretamente!")
+            if (error.status == 403) {
+                alert("Você não tem permissão para esta ação!")
+            } else {
+                alert("Insira todas as informações corretamente!")
+            }      
         })
     }
 });
