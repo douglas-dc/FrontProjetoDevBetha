@@ -1,33 +1,33 @@
-<h3>Dados da Ordem de Serviço</h3>
-<div>Cliente</div>
-<select ng-model="ordemDeServico.cliente" ng-options="cliente.id + ' ' + cliente.nome for cliente in clientes">
-</select>
-<br>
-<br>
-<div>Status</div>
-<select ng-model="ordemDeServico.status" ng-options="status for status in listStatus">
-</select>
-<div><h4>Equipamentos Cadastrados</h4></div>
-<table>
-    <tr>
-        <th>Tipo</th>
-        <th>Descrição</th>
-        <th>Imagem</th>
-        <th>Nova Imagem</th>
-        <th>Salvar</th>
-    </tr>
-    
-    <tr ng-repeat="equipamento in ordemDeServico.equipamentos">
-        <td><input type="text" ng-model="equipamento.tipo" placeholder="Tipo do equipamento"></td>
-        <td><input type="text" ng-model="equipamento.descricao" placeholder="Descrição do equipamento"></td>
-        <td><a href="{{equipamento.imageName}}" target="_blank" ng-if="!equipamento.imageName.endsWith('null')">Abrir imagem</a></td>
-        <td><input type="file" id="file" name="files" file-model="myFile"></td>
-        <td><button type="submit" ng-click="uploadImagem(ordemDeServico.equipamentos)">Adicionar</button></td>
-    </tr>
-</table>
-<br>
-<br>
-<button ng-click="updateOrdemDeServico(ordemDeServico)">Alterar</button>
-<br>
-<br>
-<a href="#/ordens">Voltar</a>
+<div class="jumbotron">
+    <h3>Dados da Ordem de Serviço</h3>
+    <div>Cliente</div>
+    <select ng-model="ordemDeServico.cliente" ng-options="cliente.id + ' ' + cliente.nome for cliente in clientes">
+    </select>
+    <br>
+    <br>
+    <div>Status</div>
+    <select ng-model="ordemDeServico.status" ng-options="status for status in listStatus">
+    </select>
+    <div><h4>Equipamentos Cadastrados</h4></div>
+    <table class="table">
+        <tr>
+            <th>Tipo</th>
+            <th>Descrição</th>
+            <th>Imagem</th>
+            <th>Nova Imagem</th>
+        </tr>
+        <tr ng-repeat="equipamento in ordemDeServico.equipamentos">
+            <td><input type="text" ng-model="equipamento.tipo" placeholder="Tipo do equipamento"></td>
+            <td><input type="text" ng-model="equipamento.descricao" placeholder="Descrição do equipamento"></td>
+            <td><a href="{{equipamento.imageName}}" target="_blank" ng-if="!equipamento.imageName.endsWith('null')">Abrir imagem</a></td>
+            <td><input type="file" id="file" name="files" file-model="myFile"></td>
+        </tr>
+    </table>
+    <button type="submit" ng-click="uploadImagem(ordemDeServico.equipamentos)">Salvar imagens</button>
+    <br>
+    <br>
+    <button class="btn btn-success" ng-click="updateOrdemDeServico(ordemDeServico)">Alterar</button>
+    <br>
+    <br>
+    <a class="btn btn-secondary" href="#/ordens">Voltar</a>
+</div>

@@ -29,7 +29,7 @@ angular.module("projetoDevBetha").controller("alterarOrdemDeServicoController", 
                 if (file[i].files[0] != null || file[i].files[0] != undefined) {
                     ordemDeServicoService.postImagem(equipamentoId,
                         file[i].files[0]).then(function() {
-                            window.location.reload();
+                            //window.location.reload();
                         }, function(error) {
                             alert(error.data.message)
                         })
@@ -40,7 +40,7 @@ angular.module("projetoDevBetha").controller("alterarOrdemDeServicoController", 
             equipamentoId = equipamentos[0].id; 
             console.log(img)
             ordemDeServicoService.postImagem(equipamentoId, img).then(function() {
-                window.location.reload();
+                //window.location.reload();
             }, function(error) {
                 alert(error.data.message)
             })
@@ -60,5 +60,4 @@ angular.module("projetoDevBetha").controller("alterarOrdemDeServicoController", 
     }
 
     $scope.findOrdemDeServicoById($routeParams.id);
-    
 });
