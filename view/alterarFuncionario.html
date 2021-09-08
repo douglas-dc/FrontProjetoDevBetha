@@ -1,14 +1,17 @@
-<h3>Dados do Funcionário</h3>
-<input type="text" ng-model="funcionario.nome" placeholder="Nome">
-<input type="text" ng-model="funcionario.email" placeholder="Email">
-<select ng-model="funcionario.perfil">
-    <option value="ADMIN">ADMIN</option>
-    <option value="RECEPCIONISTA">RECEPCIONISTA</option>
-    <option value="TECNICO">TECNICO</option>
-</select>
-<br>
-<br>
-<button ng-click="updateFuncionario(funcionario)">Alterar</button>
-<br>
-<br>
-<a class="btn btn-secondary" href="#/funcionarios">Voltar</a>
+<div class="jumbotron">
+    <h3>Dados do Funcionário</h3>
+    <form>
+        <input type="text" ng-model="funcionario.nome" placeholder="Nome">
+        <input type="text" ng-model="funcionario.email" placeholder="Email">
+        <select class="select" ng-model="funcionario.perfil">
+            <option value="ADMIN">ADMIN</option>
+            <option value="RECEPCIONISTA">RECEPCIONISTA</option>
+            <option value="TECNICO">TECNICO</option>
+        </select>
+    </form>
+    <br>
+    <div>
+        <button class="btn btn-success" ng-click="updateFuncionario(funcionario)">Alterar</button>
+        <a class="btn btn-secondary" href="#/funcionarios">Voltar</a>
+    </div>
+</div>

@@ -1,15 +1,19 @@
 <div class="jumbotron">
     <h3>Dados da Ordem de Serviço</h3>
-    <div>Cliente</div>
-    <select ng-model="ordemDeServico.cliente" ng-options="cliente.id + ' ' + cliente.nome for cliente in clientes">
+    <div><b>Cliente</b></div>
+    <select class="select" ng-model="ordemDeServico.cliente" ng-options="cliente.id + ' ' + cliente.nome for cliente in clientes">
     </select>
     <br>
     <br>
-    <div>Status</div>
-    <select ng-model="ordemDeServico.status" ng-options="status for status in listStatus">
+    <div><b>Status</b></div>
+    <select class="select" ng-model="ordemDeServico.status" ng-options="status for status in listStatus">
     </select>
-    <div><h4>Equipamentos Cadastrados</h4></div>
-    <table class="table">
+    <br>
+    <br>
+    <h5>
+        <b>Equipamentos Cadastrados</b>
+    </h5>
+    <table class="table table-striped">
         <tr>
             <th>Tipo</th>
             <th>Descrição</th>
@@ -23,11 +27,10 @@
             <td><input type="file" id="file" name="files" file-model="myFile"></td>
         </tr>
     </table>
-    <button type="submit" ng-click="uploadImagem(ordemDeServico.equipamentos)">Salvar imagens</button>
+    <button class="btn btn-primary" type="submit" ng-click="uploadImagem(ordemDeServico.equipamentos)">Salvar imagens</button>
     <br>
-    <br>
-    <button class="btn btn-success" ng-click="updateOrdemDeServico(ordemDeServico)">Alterar</button>
-    <br>
-    <br>
-    <a class="btn btn-secondary" href="#/ordens">Voltar</a>
+    <div>
+        <button class="btn btn-success" ng-click="updateOrdemDeServico(ordemDeServico)">Alterar</button>
+        <a class="btn btn-secondary" href="#/ordens">Voltar</a>
+    </div>
 </div>

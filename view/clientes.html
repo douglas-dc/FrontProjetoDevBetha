@@ -1,29 +1,26 @@
 <div class="jumbotron">
     <h3>Clientes</h3>
+    <input type="text" ng-model="criterioDeBusca" placeholder="Digite um nome para buscar" class="input-search">
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Endereco</th>
+            <th>Opções</th>
+        </tr>
+        <tr ng-repeat="cliente in clientes | filter:{nome:criterioDeBusca}">
+            <td>{{cliente.id}}</td>
+            <td>{{cliente.nome}}</td>
+            <td>{{cliente.email}}</td>
+            <td>{{cliente.telefone}}</td>
+            <td>{{cliente.endereco}}</td>
+            <td><a class="btn btn-primary" href="#/alterarcliente/{{cliente.id}}">Alterar</a></td>
+        </tr>
+    </table>
     <div>
-        <input type="text" ng-model="criterioDeBusca" placeholder="Digite um nome para buscar" style="width: 300px;">
+        <a class="btn btn-success" href="#/novocliente">Novo Cliente</a>
+        <a class="btn btn-secondary" href="#/homepage">Voltar</a>
     </div>
-    <div>
-        <table class="table">
-            <tr>
-                <th>Id</th>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>Telefone</th>
-                <th>Endereco</th>
-                <th>Opções</th>
-            </tr>
-            <tr ng-repeat="cliente in clientes | filter:{nome:criterioDeBusca}">
-                <td>{{cliente.id}}</td>
-                <td>{{cliente.nome}}</td>
-                <td>{{cliente.email}}</td>
-                <td>{{cliente.telefone}}</td>
-                <td>{{cliente.endereco}}</td>
-                <td><a class="btn btn-primary" href="#/alterarcliente/{{cliente.id}}">Alterar</a></td>
-            </tr>
-        </table>
-    </div>
-    <br>
-        <a class="btn btn-primary btn-block" href="#/novocliente">Novo Cliente</a>
-        <a class="btn btn-secondary btn-block" href="#/homepage">Voltar</a>
 </div>

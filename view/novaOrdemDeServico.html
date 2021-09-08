@@ -1,31 +1,37 @@
-<h3>Dados da Ordem de Serviço</h3>
-<div>Cliente</div>
-<select ng-model="ordemDeServico.cliente" ng-options="cliente.id + ' ' + cliente.nome for cliente in clientes">
-</select>
-<br>
-<br>
-<div>Equipamentos</div>
-<form>
-    <input type="text" ng-model="equipamento.tipo" placeholder="Tipo do equipamento">
-    <input type="text" ng-model="equipamento.descricao" placeholder="Descrição do equipamento">
-    <button ng-click="insertEquipamento(equipamento)">Salvar</button>
-</form>
-<br>
-<br>
-<div>Equipamentos Cadastrados</div>
-<table>
-    <tr>
-        <th>Tipo</th>
-        <th>Descrição</th>
-    </tr>
-    <tr ng-repeat="equipamento in ordemDeServico.equipamentos">
-        <td>{{equipamento.tipo}}</td>
-        <td>{{equipamento.descricao}}</td>
-    </tr>
-</table>
-<br>
-<br>
-<button ng-click="insertOrdemDeServico(ordemDeServico, equipamentos)">Adicionar</button>
-<br>
-<br>
-<a class="btn btn-secondary" href="#/ordens">Voltar</a>
+<div class="jumbotron">
+    <h3>Dados da Ordem de Serviço</h3>
+    <div><b>Cliente</b></div>
+    <select class="select" ng-model="ordemDeServico.cliente" ng-options="cliente.id + ' ' + cliente.nome for cliente in clientes">
+    </select>
+    <br>
+    <br>
+    <div><b>Equipamentos</b></div>
+    <form>
+        <input type="text" ng-model="equipamento.tipo" placeholder="Tipo do equipamento">
+        <input type="text" ng-model="equipamento.descricao" placeholder="Descrição do equipamento">
+        <br>
+        <br>
+        <button class="btn btn-primary" ng-click="insertEquipamento(equipamento)">Cadastrar</button>
+    </form>
+    <br>
+    <br>
+    <h5>
+        <b>Equipamentos Cadastrados</b>
+    </h5>
+    <table class="table table-striped">
+        <tr>
+            <th>Tipo</th>
+            <th>Descrição</th>
+        </tr>
+        <tr ng-repeat="equipamento in ordemDeServico.equipamentos">
+            <td>{{equipamento.tipo}}</td>
+            <td>{{equipamento.descricao}}</td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <div>
+        <button class="btn btn-success" ng-click="insertOrdemDeServico(ordemDeServico, equipamentos)">Adicionar</button>
+        <a class="btn btn-secondary" href="#/ordens">Voltar</a>
+    </div>
+</div>

@@ -1,30 +1,29 @@
-<h3>Funcionários</h3>
-<div>
-    <input type="text" ng-model="criterioDeBusca" placeholder="Digite um email para buscar" style="width: 300px;">
-</div>
-<br>
-<div>
-    <table>
+<div class="jumbotron">
+    <h3>Funcionários</h3>
+    <div>
+        <input type="text" ng-model="criterioDeBusca" placeholder="Digite um email para buscar" class="input-search">
+    </div>
+        <br>
+    <table class="table table-striped">
         <tr>
             <th>Id</th>
             <th>Nome</th>
             <th>Email</th>
             <th>Perfil</th>
+            <th colspan="2">Opções</th>
         </tr>
         <tr ng-repeat="funcionario in funcionarios | filter:{email:criterioDeBusca}">
             <td>{{funcionario.id}}</td>
             <td>{{funcionario.nome}}</td>
             <td>{{funcionario.email}}</td>
             <td>{{funcionario.perfil}}</td>
-            <td><a href="#/alterarfuncionario/{{funcionario.id}}">Alterar</a></td>
-            <td><button ng-click="deleteFuncionarioById(funcionario.id)">Deletar</button></td>
+            <td><a class="btn btn-primary" href="#/alterarfuncionario/{{funcionario.id}}">Alterar</a></td>
+            <td><button class="btn btn-danger" ng-click="deleteFuncionarioById(funcionario.id)">Deletar</button></td>
         </tr>
     </table>
-</div>
-<br>
-<div>
-    <a class="btn btn-primary" href="#/novofuncionario">Novo Funcionário</a>
     <br>
-    <br>
-    <a class="btn btn-secondary" href="#/homepage">Voltar</a>
+    <div>
+        <a class="btn btn-success" href="#/novofuncionario">Novo Funcionário</a>
+        <a class="btn btn-secondary" href="#/homepage">Voltar</a>
+    </div>
 </div>

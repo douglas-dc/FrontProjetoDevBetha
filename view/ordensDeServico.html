@@ -1,36 +1,32 @@
 <div class="jumbotron">
     <h3>Ordens de Serviço</h3>
     <div>
-        <input type="text" ng-model="criterioDeBusca" placeholder="Digite um id para buscar" style="width: 300px;">
+        <input type="text" ng-model="criterioDeBusca" placeholder="Digite um id para buscar" class="input-search">
     </div>
     <br>
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Instante</th>
+            <th>Cliente</th>
+            <th>Equipamentos</th>
+            <th>Status</th>
+            <th colspan="2">Opções</th>
+        </tr>
+        <tr ng-repeat="ordemDeServico in ordensDeServico | filter:{id:criterioDeBusca}">          
+            <td>{{ordemDeServico.id}}</td>
+            <td>{{ordemDeServico.instante}}</td>
+            <td>{{ordemDeServico.cliente.nome}}</td>
+            <td>
+                <li ng-repeat="equipamento in ordemDeServico.equipamentos">{{equipamento.tipo}}</li>
+            </td>
+            <td>{{ordemDeServico.status}}</td>
+            <td><a class="btn btn-primary" href="#/alterarordemdeservico/{{ordemDeServico.id}}">Alterar</a></td>
+            <td><button class="btn btn-danger" ng-click="deleteOrdemDeServicoById(ordemDeServico.id)">Deletar</button></td>
+        </tr>
+    </table>
     <div>
-        <table class="table">
-            <tr>
-                <th>Id</th>
-                <th>Instante</th>
-                <th>Cliente</th>
-                <th>Equipamentos</th>
-                <th>Status</th>
-            </tr>
-            <tr ng-repeat="ordemDeServico in ordensDeServico | filter:{id:criterioDeBusca}">          
-                <td>{{ordemDeServico.id}}</td>
-                <td>{{ordemDeServico.instante}}</td>
-                <td>{{ordemDeServico.cliente.nome}}</td>
-                <td>
-                    <li ng-repeat="equipamento in ordemDeServico.equipamentos">{{equipamento.tipo}}</li>
-                </td>
-                <td>{{ordemDeServico.status}}</td>
-                <td><a class="btn btn-primary" href="#/alterarordemdeservico/{{ordemDeServico.id}}">Alterar</a></td>
-                <td><button class="btn btn-danger" ng-click="deleteOrdemDeServicoById(ordemDeServico.id)">Deletar</button></td>
-            </tr>
-        </table>
-    </div>
-    <br>
-    <div>
-        <a class="btn btn-primary" href="#/novaordemdeservico">Nova Ordem de Serviço</a>
-        <br>
-        <br>
+        <a class="btn btn-success" href="#/novaordemdeservico">Nova Ordem de Serviço</a>
         <a class="btn btn-secondary" href="#/homepage">Voltar</a>
     </div>
 </div>
